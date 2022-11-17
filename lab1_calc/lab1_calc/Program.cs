@@ -68,7 +68,53 @@ namespace lab1_calc
 
                             }
                     }
+                                            while (operStack.Counr > 0)
+                                            {
+                                                output += operStack.Pop() + "";
+                                            }
+                                            return output;
                 }
+                                            static double resultEquation (string input);
+                                            {
+                                                string polishExpression = readingEquation(input);
+                                                Console.WriteLine ("Польская нотация: " + polishExpression);
+                                                double res = result (polishExpression);
+                                                return res;
+                                            }
+                                            static bool IsDelimeter (char symbol);
+                                            {
+                                                switch (symbol)
+                                                {
+                                                    case ' ':
+                                                    case '=':
+                                                        return true;
+                                                    default:
+                                                        return false;
+                                                }
+                                            }
+                                            
+                                            static bool IsOperator (char symbol)
+                                            {
+                                                return CheckOperatorPrecedence (symbol) < MAX_PRIORITY;
+                                            }
+                                            
+                                            static byte CheckOperatorPrecedence (char symbol) => symbol switch
+                                            {
+                                                '(' => 0,
+                                                ')' => 1,
+                                                '+' => 2,
+                                                '-' => 2,
+                                                '/' => 3,
+                                                '*' => 3,
+                                                _ => MAX_PRIORITY   ,
+                                            }
+                                            
+                                            static private double result (string input)
+                                            {
+                                                double total = 0;
+                                                Stack<double> stack = new Stack<double>;
+                                                for (int symbol = 0; symbol < input.Lenght; symbol++)
+                                            }
             }
         }
     }
