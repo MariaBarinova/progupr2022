@@ -109,11 +109,41 @@ namespace lab1_calc
                                                 _ => MAX_PRIORITY   ,
                                             }
                                             
-                                            static private double result (string input)
+                                            static private double result (string inputing)
                                             {
                                                 double total = 0;
                                                 Stack<double> stack = new Stack<double>;
                                                 for (int symbol = 0; symbol < input.Lenght; symbol++)
+                                                {
+                                                    if (IsOperator (inputing [symbol]))
+                                                    {
+                                                        double a = stack.Pop;
+                                                        double b = stack.Pop;
+                                                        
+                                                        switch (inputing [symbol])
+                                                        {
+                                                            case '+': total = b+a; break;
+                                                            case '-': total = b-a; break;
+                                                            case '/': total = b/a; break;
+                                                            case '*': total = b*a; break;
+                                                        }
+                                                        stack.Push(total);
+                                                    }
+                                                    
+                                                    else if (Char.IsDigit(inputing[symbol]))
+                                                    {
+                                                        strig output = string.Empty;
+                                                        while (! (IsOperator (inputing[symbol]) || IsDelimeter (inputing[symbol])))
+                                                        {
+                                                            output += inputing[symbol];
+                                                            symbol++;
+                                                            if symbol == inputing.Length) break;
+                                                        }
+                                                        stack.Push(double.Parse(output));
+                                                        symbol--;
+                                                    }
+                                                }
+                                                return stack.Peek();
                                             }
             }
         }
