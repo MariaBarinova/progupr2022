@@ -1,0 +1,7 @@
+C:\Users\79537\source\repos\lab1_calc\lab1_calc\bin\Debug\lab1_calc.exe.config
+C:\Users\79537\source\repos\lab1_calc\lab1_calc\bin\Debug\lab1_calc.exe
+C:\Users\79537\source\repos\lab1_calc\lab1_calc\bin\Debug\lab1_calc.pdb
+C:\Users\79537\source\repos\lab1_calc\lab1_calc\obj\Debug\lab1_calc.csproj.AssemblyReference.cache
+C:\Users\79537\source\repos\lab1_calc\lab1_calc\obj\Debug\lab1_calc.csproj.CoreCompileInputs.cache
+C:\Users\79537\source\repos\lab1_calc\lab1_calc\obj\Debug\lab1_calc.exe
+C:\Users\79537\source\repos\lab1_calc\lab1_calc\obj\Debug\lab1_calc.pdb
