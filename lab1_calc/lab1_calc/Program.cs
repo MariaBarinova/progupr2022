@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Text.RegularExpressions;
 
 namespace lab1_calc
 {
@@ -11,45 +10,66 @@ namespace lab1_calc
     {
         static void Main(string[] args)
         {
-            // Объявление переменных
-            int n1 = 0;
-            int n2 = 0;
-            int inermedian_n = 0;
-
-            // Ввод чисел
-            Console.WriteLine("Введите первое число: ");
-            n1 = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Введите второе число: ");
-            n2 = Convert.ToInt32(Console.ReadLine());
-
-            //Выбор операции
-            Console.WriteLine("Выберите операцию: ");
-            Console.WriteLine("\t+: сложение");
-            Console.WriteLine("\t-: вычитание");
-            Console.WriteLine("\t*: умножение");
-            Console.WriteLine("\t/: деление");
-            Console.WriteLine("\t^: степень");
-
-            switch (Console.ReadLine())
+            class reverseNotarion
             {
-                case "+":
-                    Console.WriteLine($"Результат: {n1} + {n2} = " + (n1 + n2));
-                    break;
-                case "-":
-                    Console.WriteLine($"Результат: {n1} - {n2} = " + (n1 - n2));
-                    break;
-                case "*":
-                    Console.WriteLine($"Результат: {n1} * {n2} = " + (n1 * n2));
-                    break;
-                case "/":
-                    Console.WriteLine($"Результат: {n1} / {n2} = " + (n1 / n2));
-                    break;
-                case "^":
-                    Console.WriteLine($"Результат: {n1} ^ {n2} = " + (n1 ^ n2));
-                    break;
+                static void Main (string [] args)
+                {
+                    while (true)
+                    {
+                        Console.Write ();
+                        var input = Console.ReadLine ();
+                        var result = reverseNotarion.resultNotation (input);
+                        Console.Write (result);
+                    }
+                }
+
+                static string readingEquation (string input);
+                {
+                    string output = string.Empty;
+                    Stack <char> operStack = new Stack<char>();
+
+                    for (int = 0; i<input.Lenghth; i++) 
+                    {
+                        if (Char.IsDigit (input[i]))
+                        {
+                            while ! (IsDelimetre(input[i]) || IsOperator (input[i]))
+                            {
+                                output += input [i];
+                                i++;
+                                if (i == input.Lenght) break
+                            }
+                            output += " ";
+                            i--
+                        }
+                        else if (IsOperator(input [i]))
+                        {
+                            switch (input [i])
+                            {
+                                case '(': 
+                                operStack.Push (input [i]);
+                                break;
+                                case ')': 
+                                {
+                                    char symbol = operStack.Pop();
+                                    while (symbol != '(')
+                                    {
+                                        output += symbol.ToString() + '';
+                                        sumbol = oper.Stack.Pop;
+                                    }
+                                    break;
+                                }
+                                    default: 
+                                        if (operStack.Count > 0;
+                                                 if (CheckOperatorPrecedence (input[i]) <= CheckOpoeratorPrecedence (operStack.Peek()))
+                                                    output += operStack.Pop().ToString + " ";
+                                                    operStack.Push(char.Parse(input[i].ToString()));
+                                                 break;
+                                }
+
+                            }
+                    }
+                }
             }
-            Console.Write("Для закрытия нажмите любую кнопку.");
-            Console.ReadKey();
         }
     }
 }
